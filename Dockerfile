@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Lab_1</title>
-    </head>
-    <body>
-        <h2>Hello from Docker, launched by Jenkins</h2>
-    </body>
-</html>
+FROM ubuntu:latest
+RUN apt update && apt install -y nginx
+COPY index.html /var/www/html/index.html
+CMD ["nginx", "-g", "daemon off;"]
