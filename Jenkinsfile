@@ -10,18 +10,21 @@ pipeline {
 
         stage('Build nginx/custom') {
             steps {
+                echo 'Building Docker image...'
                 sh 'docker build -t nginx/custom:latest .'
             }
         }
 
         stage('Test nginx/custom') {
             steps {
+                echo 'Running tests...'
                 echo 'Pass'
             }
         }
 
-        stage('Deploy nginx/custom'){
-            steps{
+        stage('Deploy nginx/custom') {
+            steps {
+                echo 'Deploying container...'
                 sh "docker run -d -p 80:80 nginx/custom:latest"
             }
         }
