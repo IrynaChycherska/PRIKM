@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy nginx/custom') {
             steps {
                 echo 'Deploying container...'
-                sh "docker run -d -p 80:79 nginx/custom:latest"
+                sh "docker run -d -p 90:80 nginx/custom:latest"
             }
         }
     }
